@@ -95,6 +95,12 @@ const Description = styled.p`
   letter-spacing: 1.5px;
 `;
 
-const CTALogoTwo = styled.img``;
+const CTALogoTwo = styled.img`
+  max-width: 600px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
+`;
 
 export default Login;
