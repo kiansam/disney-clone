@@ -11,6 +11,26 @@ const Header = (props) => {
           <img src="/images/home-icon.svg" alt="Home" />
           <span>HOME</span>
         </a>
+        <a>
+          <img src="/images/search-icon.svg" alt="SEARCH" />
+          <span>SEARCH</span>
+        </a>
+        <a>
+          <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
+          <span>WATCHLIST</span>
+        </a>
+        <a>
+          <img src="/images/original-icon.svg" alt="ORIGINALS" />
+          <span>ORIGINALS</span>
+        </a>
+        <a>
+          <img src="/images/movie-icon.svg" alt="MOVIES" />
+          <span>MOVIES</span>
+        </a>
+        <a>
+          <img src="/images/series-icon.svg" alt="SERIES" />
+          <span>SERIES</span>
+        </a>
       </NavMenu>
     </Nav>
   );
@@ -74,10 +94,31 @@ const NavMenu = styled.div`
       padding: 2px 0;
       white-space: nowrap;
       position: relative;
+
+      &:before {
+        background-color: rgb(249, 249, 249);
+        border-radius: 0 0 4px 4px;
+        bottom: -6px;
+        content: "";
+        height: 2px;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        transform-origin: left center;
+        transform: scaleX(0);
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+        visibility: hidden;
+        width: auto;
+      }
     }
-    &:before {
-      background-color: rgb(249, 249, 249);
-      border-radius: 0 0 4px 4px;
+
+    &:hover {
+      span:before {
+        transform: scaleX(1);
+        visibility: visible;
+        opacity: 1 !important;
+      }
     }
   }
 
