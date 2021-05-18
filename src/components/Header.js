@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { auth, provider } from "../firebase";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,15 +16,34 @@ const Header = (props) => {
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        history.push("/home");
+      }
+    });
+  }, [userName]);
+
   const handleAuth = () => {
-    auth
-      .signInWithPopup(provider)
-      .then((result) => {
-        setUser(result.user);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
+    if (!userName) {
+      auth
+        .signInWithPopup(provider)
+        .then((result) => {
+          setUser(result.user);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    } else if (userName) {
+      auth
+        .signOut()
+        .then(() => {
+          dispatch(setSignOutState());
+          history.push("/");
+        })
+        .catch((err) => alert(err.message));
+    }
   };
 
   const setUser = (user) => {
@@ -51,23 +71,23 @@ const Header = (props) => {
               <img src="/images/home-icon.svg" alt="Home" />
               <span>HOME</span>
             </a>
-            <a>
+            <a href="/">
               <img src="/images/search-icon.svg" alt="SEARCH" />
               <span>SEARCH</span>
             </a>
-            <a>
+            <a href="/">
               <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
               <span>WATCHLIST</span>
             </a>
-            <a>
+            <a href="/">
               <img src="/images/original-icon.svg" alt="ORIGINALS" />
               <span>ORIGINALS</span>
             </a>
-            <a>
+            <a href="/">
               <img src="/images/movie-icon.svg" alt="MOVIES" />
               <span>MOVIES</span>
             </a>
-            <a>
+            <a href="/">
               <img src="/images/series-icon.svg" alt="SERIES" />
               <span>SERIES</span>
             </a>
@@ -106,6 +126,7 @@ const Logo = styled.a`
   max-height: 70px;
   font-size: 0;
   display: inline-block;
+
   img {
     display: block;
     width: 100%;
@@ -128,12 +149,14 @@ const NavMenu = styled.div`
     display: flex;
     align-items: center;
     padding: 0 12px;
+
     img {
       height: 20px;
       min-width: 20px;
       width: 20px;
       z-index: auto;
     }
+
     span {
       color: rgb(249, 249, 249);
       font-size: 13px;
@@ -218,11 +241,13 @@ const SignOut = styled.div`
   cursor: pointer;
   align-items: center;
   justify-content: center;
+
   ${UserImg} {
     border-radius: 50%;
     width: 100%;
     height: 100%;
   }
+
   &:hover {
     ${DropDown} {
       opacity: 1;
