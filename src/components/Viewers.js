@@ -40,8 +40,22 @@ const Viewers = (props) => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  margin-top: 30px;
+  padding: 30px 0 26px;
+  display: grid;
+  grid-gap: 25px;
+  gap: 25px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 
-const Wrap = styled.div``;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+`;
+
+const Wrap = styled.div`
+  padding-top: 56.25%;
+  border-radius: 10px;
+`;
 
 export default Viewers;
