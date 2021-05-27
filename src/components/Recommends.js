@@ -2,10 +2,21 @@ import styled from "styled-components";
 
 const Recommends = (props) => {
   return (
-    <div>
+    <Container>
       <h4>Recommended for you</h4>
-    </div>
+      <Content></Content>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  padding: 0 0 26px;
+`;
+
+const Content = styled.div`
+  display: grid;
+  grid-gap: 25px;
+  gap: 25px;
+`;
 
 export default Recommends;
