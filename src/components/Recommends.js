@@ -1,10 +1,15 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Recommends = (props) => {
   return (
     <Container>
       <h4>Recommended for you</h4>
-      <Content></Content>
+      <Content>
+        <Wrap>
+          <Link></Link>
+        </Wrap>
+      </Content>
     </Container>
   );
 };
@@ -23,5 +28,11 @@ const Content = styled.div`
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `;
+
+const Wrap = styled.div`
+
+`
+
+
 
 export default Recommends;
