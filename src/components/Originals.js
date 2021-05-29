@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const NewDisney = (props) => {
+const Originals = (props) => {
   return (
     <Container>
-      <h4>New to Disney+</h4>
+      <h4>Originals</h4>
       <Content>
         <Wrap>
           <Link></Link>
@@ -61,4 +61,4 @@ const Wrap = styled.div`
   }
 `;
 
-export default NewDisney;
+export default Originals;
