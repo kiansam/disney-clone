@@ -46,7 +46,7 @@ const Home = (props) => {
       dispatch(
         setMovies({
           recommend: recommends,
-          NewDisney: newDisneys,
+          newDisney: newDisneys,
           original: originals,
           trending: trending,
         })
