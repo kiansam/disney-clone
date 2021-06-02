@@ -63,6 +63,12 @@ const ContentMeta = styled.div`
 
 const Controls = styled.div`
   align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 24px 0;
+  min-height: 56px;
 `;
+
+
 
 export default Detail;
