@@ -4,6 +4,10 @@ const Detail = (props) => {
   return (
     <Container>
       <Background></Background>
+      <ImageTitle></ImageTitle>
+      <ContentMeta>
+        <Controls>Controls</Controls>
+      </ContentMeta>
     </Container>
   );
 };
@@ -33,6 +37,32 @@ const Background = styled.div`
       width: initial;
     }
   }
+`;
+
+const ImageTitle = styled.div`
+  align-items: flex-end;
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  margin: 0 auto;
+  height: 30vw;
+  min-height: 170px;
+  padding-bottom: 24px;
+  width: 100%;
+
+  img {
+    max-width: 600px;
+    min-width: 200px;
+    width: 35vw;
+  }
+`;
+
+const ContentMeta = styled.div`
+  max-width: 874px;
+`;
+
+const Controls = styled.div`
+  align-items: center;
 `;
 
 export default Detail;
