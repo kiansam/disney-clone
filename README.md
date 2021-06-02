@@ -1,4 +1,4 @@
-Disney-Clone using Reactjs, styled-components, react-router, and Firebase
+
 
 
 # Getting Started with Create React App
