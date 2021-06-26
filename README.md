@@ -1,6 +1,5 @@
 Disney-clone using Reactjs, redux, react-router, and styled-components
 
-yarn-start
 
 # Getting Started with Create React App
 
